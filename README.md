@@ -2,7 +2,7 @@
 
 **Nama:** Rischa Sulistya Agustin
 **NIM:** 241080200005
-**Kelas:** Teknik Informatika 4B1
+**Kelas:** Teknik Informatika 5B1
 
 ---
 

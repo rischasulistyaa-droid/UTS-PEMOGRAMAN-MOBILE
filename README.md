@@ -10,7 +10,7 @@
 
 **a) Halaman yang pertama kali dibuka**
 
-Halaman `HomeScreen`, karena di `NavHost` ada `startDestination = "home"`. Jadi pas app jalan, route `"home"` yang ditampilkan duluan.
+Halaman HomeScreen, karena di NavHost ada `startDestination = "home"`. Jadi pas app jalan, route `"home"` yang ditampilkan duluan.
 
 **b) Route yang dipanggil saat tombol detail ditekan**
 

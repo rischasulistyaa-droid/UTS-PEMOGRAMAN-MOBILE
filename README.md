@@ -205,7 +205,7 @@ HASIL = jadwalHariIni
 
 **a) Data yang dipilih oleh `filter`**
 
-ata jadwal yang hari`-nya **"Senin"**. Jadwal hari lain dibuang.
+Data jadwal yang harinya **"Senin"**. Jadwal hari lain dibuang.
 
 **b) Informasi yang diambil oleh `map`**
 

@@ -203,11 +203,11 @@ UNTUK SETIAP item DALAM daftar jadwal:
 HASIL = jadwalHariIni
 ```
 
-**a) Data yang dipilih oleh `filter`**
+**a) Data yang dipilih oleh filter**
 
 Data jadwal yang harinya **"Senin"**. Jadwal hari lain dibuang.
 
-**b) Informasi yang diambil oleh `map`**
+**b) Informasi yang diambil oleh map**
 
 Properti **jam** dan **mataKuliah** dari tiap jadwal yang lolos filter, lalu digabung jadi satu string berformat **"jam - mataKuliah"**.
 

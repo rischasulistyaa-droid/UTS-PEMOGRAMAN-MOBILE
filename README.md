@@ -22,7 +22,7 @@ navController.navigate("detail/42")
 
 **c) Dari mana nilai id diperoleh pada halaman detail**
 
-Dari argument yang ikut di route. Route-nya **"detail/{id}"**, jadi {id} bakal keisi 42 (dari detail/42). Nilainya diambil lewat:
+Dari argument yang ikut di route. Route-nya *"detail/{id}"*, jadi {id} bakal keisi 42 (dari detail/42). Nilainya diambil lewat:
 
 ```kotlin
 val id = entry.arguments?.getString("id") ?: "-"
@@ -31,7 +31,7 @@ Jadi entry mengambil nilai dan menyimpan nilai arguments
 
 **d) Nilai pengganti jika `id` tidak ditemukan**
 
-Kalau `getString("id")` hasilnya null (atau arguments nya null), maka dipakai nilai default/String "-" Ini dari operator Elvis supaya `DetailScreen` nggak dapat nilai null.
+Kalau getString("id") hasilnya null (atau arguments nya null), maka dipakai nilai default/String "-" Ini dari operator Elvis supaya `DetailScreen` nggak dapat nilai null.
 
 **e) Fungsi NavHost**
 
@@ -119,7 +119,7 @@ fun DaftarTugas() {
 
 **b) Fungsi LazyColumn pada kasus ini**
 
-`LazyColumn` dipakai buat nampilin daftar tugas yang bisa di-scroll secara vertikal. Bedanya sama `Column` biasa, `LazyColumn` cuma nge-compose item yang kelihatan di layar (lazy). Jadi kalau tugasnya banyak, performanya tetap ringan dan nggak boros memori. Dengan `items(listTugas)`, tiap data otomatis jadi satu `Card` tanpa harus nulis satu-satu.
+**LazyColumn** dipakai untuk menampilkan daftar tugas yang bisa di-scroll secara vertikal. Bedanya sama Column biasa, **LazyColumn** cuma nge-compose item yang kelihatan di layar (lazy). Jadi kalau tugasnya banyak, performanya tetap ringan dan nggak boros memori. Dengan **items(listTugas)**, tiap data otomatis jadi satu Card tanpa harus nulis satu-satu.
 
 ---
 
@@ -182,9 +182,9 @@ fun MenuCard(nama: String, onClick: () -> Unit) {
 ```
 
 Penjelasan singkat:
-- `LazyVerticalGrid` dengan `GridCells.Fixed(2)` bikin menu tampil 2 kolom sesuai wireframe.
-- Tiap menu dibungkus `Card` yang bisa ditekan (`onClick`).
-- Callback `onClick` dibikin sederhana dulu, belum perlu halaman tujuan.
+- **LazyVerticalGrid** dengan **GridCells.Fixed(2)** bikin menu tampil 2 kolom sesuai wireframe.
+- Tiap menu dibungkus **Card** yang bisa ditekan **(onClick)**.
+- Callback **onClick** dibikin sederhana.
 
 ---
 
@@ -205,12 +205,12 @@ HASIL = jadwalHariIni
 
 **a) Data yang dipilih oleh `filter`**
 
-Data jadwal yang `hari`-nya `"Senin"`. Jadwal hari lain dibuang.
+ata jadwal yang hari`-nya **"Senin"**. Jadwal hari lain dibuang.
 
 **b) Informasi yang diambil oleh `map`**
 
-Properti `jam` dan `mataKuliah` dari tiap jadwal yang lolos filter, lalu digabung jadi satu string berformat `"jam - mataKuliah"`.
+Properti **jam** dan **mataKuliah** dari tiap jadwal yang lolos filter, lalu digabung jadi satu string berformat **"jam - mataKuliah"**.
 
 **c) Bagaimana urutan data dipertahankan**
 
-`filter` dan `map` memproses elemen satu per satu dari awal sampai akhir dan nggak mengubah urutannya. Jadi urutan hasil akhir sama kayak urutan data asli di list `jadwal`. Gaya penulisannya juga deklaratif, jadi kita cukup nulis *apa* yang diinginkan (filter lalu map), bukan *bagaimana* looping-nya.
+**filter** dan **map** memproses elemen satu per satu dari awal sampai akhir dan nggak mengubah urutannya. Jadi urutan hasil akhir sama kayak urutan data asli di list **jadwal**. Gaya penulisannya juga deklaratif, jadi kita cukup nulis *apa* yang diinginkan (filter lalu map), bukan *bagaimana* looping-nya.

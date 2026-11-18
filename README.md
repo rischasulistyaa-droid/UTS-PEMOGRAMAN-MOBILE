@@ -10,33 +10,32 @@
 
 **a) Halaman yang pertama kali dibuka**
 
-Halaman HomeScreen, karena di NavHost ada `startDestination = "home"`. Jadi pas app jalan, route `"home"` yang ditampilkan duluan.
+Halaman HomeScreen, karena di NavHost ada startDestination = "home". Jadi waktu app jalan, route "home" yang pertama kali ditampilkan.
 
 **b) Route yang dipanggil saat tombol detail ditekan**
 
-Route `"detail/42"`. Tombol detail ada di `HomeScreen` lewat callback `onDetail`, dan isinya:
+Route "detail/42". Tombol detail ada di **HomeScreen** lewat callback **onDetail**, dan isinya:
 
 ```kotlin
 navController.navigate("detail/42")
 ```
 
-**c) Dari mana nilai `id` diperoleh pada halaman detail**
+**c) Dari mana nilai id diperoleh pada halaman detail**
 
-Dari argument yang ikut di route. Route-nya `"detail/{id}"`, jadi `{id}` bakal keisi `42` (dari `detail/42`). Nilainya diambil lewat:
+Dari argument yang ikut di route. Route-nya **"detail/{id}"**, jadi {id} bakal keisi 42 (dari detail/42). Nilainya diambil lewat:
 
 ```kotlin
 val id = entry.arguments?.getString("id") ?: "-"
 ```
-
-`entry` itu `NavBackStackEntry`, dan `arguments`-nya nyimpen nilai argument dari route.
+Jadi entry mengambil nilai dan menyimpan nilai arguments 
 
 **d) Nilai pengganti jika `id` tidak ditemukan**
 
-String `"-"`. Ini dari operator Elvis `?:`. Kalau `getString("id")` hasilnya `null` (atau `arguments` nya null), maka dipakai nilai default `"-"` supaya `DetailScreen` nggak dapat nilai null.
+Kalau `getString("id")` hasilnya null (atau arguments nya null), maka dipakai nilai default/String "-" Ini dari operator Elvis supaya `DetailScreen` nggak dapat nilai null.
 
-**e) Fungsi `NavHost`**
+**e) Fungsi NavHost**
 
-`NavHost` itu wadah (container) yang nampilin halaman sesuai route yang lagi aktif. Dia nentuin halaman awal (`startDestination`) dan daftar halaman yang bisa dituju (`composable("home")`, `composable("detail/{id}")`). Perpindahan antar halaman dikendalikan sama `navController`.
+NavHost itu wadah (container) yang menampilkan halaman sesuai route yang lagi aktif. Menentukan halaman awal (startDestination) dan daftar halaman yang bisa dituju (composable("home"), composable("detail/{id}")`). dan Perpindahan antar halaman dikendalikan sama navController.
 
 ---
 
@@ -44,7 +43,7 @@ String `"-"`. Ini dari operator Elvis `?:`. Kalau `getString("id")` hasilnya `nu
 
 **a) Kode hasil perbaikan**
 
-State `teks` dipindah ke `ParentScreen`, lalu `InputNama` cuma nerima `value` dan callback `onValueChange`.
+State **teks** dipindah ke **ParentScreen**, lalu **InputNama** cuma nerima value dan callback (onValueChange).
 
 ```kotlin
 @Composable
@@ -53,7 +52,7 @@ fun ParentScreen() {
 
     InputNama(
         value = teks,
-        onValueChange = { teks = it } // callback: parent yang update state
+        onValueChange = { teks = it }  **// callback: parent yang update state**
     )
 }
 
@@ -72,7 +71,7 @@ fun InputNama(
 
 **b) Kenapa disebut state hoisting**
 
-Disebut *hoisting* (diangkat) karena state yang tadinya ada di dalam komponen anak (`InputNama`) diangkat naik ke parent (`ParentScreen`). Dengan begitu `InputNama` jadi **stateless**: dia cuma nampilin `value` yang dikasih dan ngasih tau parent lewat callback kalau ada perubahan. Keuntungannya, komponen lebih gampang dipakai ulang dan dites, dan state-nya punya satu sumber yang jelas (single source of truth).
+Disebut *hoisting* karena state yang tadinya ada di dalam komponen anak (InputNama) diangkat naik ke parent (ParentScreen), Dengan begitu InputNama jadi *stateless* dia cuma menampilkan value yang dikasih dan memberitahukan parent lewat callback kalau ada perubahan. 
 
 ---
 
